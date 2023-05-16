@@ -3,14 +3,9 @@ body {
 }
 
 nav {
-  background-color: bisque;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
-}
-
-nav > img {
-  padding-left: 40px;
 }
 
 nav > ul.nav-items {
@@ -35,5 +30,4 @@ nav > ul.nav-items {
 
 .active > p {
   text-decoration: underline;
-  color: brown;
 }

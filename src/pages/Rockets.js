@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRockets } from '../redux/rockets/rocketsSlice';
+import RocketCard from '../components/RocketCard';
 
 function Rockets() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function Rockets() {
     );
   }
   return (
-    <div>Rockets</div>
+    <RocketCard />
   );
 }
 
