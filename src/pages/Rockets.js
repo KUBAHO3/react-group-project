@@ -13,8 +13,6 @@ function Rockets() {
     dispatch(fetchRockets());
   }, [dispatch]);
 
-  console.log('data', rocketsData);
-
   if (rocketsStatus === 'loading') {
     return (
       <h1 style={{ marginLeft: '40px' }}>Loading...</h1>
@@ -27,7 +25,17 @@ function Rockets() {
     );
   }
   return (
-    <RocketCard />
+    <>
+      {rocketsData.map((item) => (
+        <RocketCard
+          key={item.id}
+          id={item.id}
+          name={item.rocket_name}
+          description={item.description}
+          flickrImages={item.flickr_images[0]}
+        />
+      ))}
+    </>
   );
 }
 
