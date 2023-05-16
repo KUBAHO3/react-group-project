@@ -5,10 +5,10 @@ import Navbar from '../components/Navbar';
 function Layout() {
   return (
     <>
-    <Navbar />
-    <Outlet />
+      <Navbar />
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
