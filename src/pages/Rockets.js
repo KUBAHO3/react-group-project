@@ -1,42 +1,37 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/rocketsSlice';
+import { fetchRockets, reserveRocket } from '../redux/rockets/rocketsSlice';
 import RocketCard from '../components/RocketCard';
 
 function Rockets() {
   const dispatch = useDispatch();
-  const rocketsData = useSelector((state) => state.rockets.rockets);
-  const rocketsStatus = useSelector((state) => state.rockets.status);
-  const rocketsError = useSelector((state) => state.rockets.error);
+  const { rockets, loading } = useSelector((store) => store.rockets);
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+    if (rockets.length === 0) {
+      dispatch(fetchRockets());
+    }
+  }, [dispatch, rockets]);
 
   const clickHandler = (e) => {
-    e.preventDefault();
+    dispatch(reserveRocket(e.target.id));
   };
 
-  if (rocketsStatus === 'loading') {
+  if (loading === 'loading') {
     return (
       <h1 style={{ marginLeft: '40px' }}>Loading...</h1>
     );
   }
 
-  if (rocketsError !== null) {
-    return (
-      <h1 style={{ marginLeft: '40px' }}>{rocketsError}</h1>
-    );
-  }
   return (
     <>
-      {rocketsData.map((item) => (
+      {rockets.map((item) => (
         <RocketCard
           key={item.id}
           id={item.id}
-          name={item.rocket_name}
+          name={item.name}
           description={item.description}
-          flickrImages={item.flickr_images[0]}
+          flickrImages={item.image}
           onClick={clickHandler}
         />
       ))}
