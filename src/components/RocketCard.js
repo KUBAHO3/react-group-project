@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function RocketCard({
-  id, name, description, flickrImages,
+  id, name, description, flickrImages, onClick,
 }) {
   return (
     <div className="container mt-3">
@@ -11,7 +11,7 @@ function RocketCard({
         <div className="col-9">
           <h4>{name}</h4>
           <p>{description}</p>
-          <button type="button" className="btn btn-primary" id={id}>Reserve rockets</button>
+          <button type="button" className="btn btn-primary" id={id} onClick={(e) => onClick(e)}>Reserve rockets</button>
         </div>
       </div>
     </div>
@@ -23,12 +23,14 @@ RocketCard.defaultProps = {
   name: '',
   description: '',
   flickrImages: '',
+  onClick: '',
 };
 RocketCard.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   description: PropTypes.string,
   flickrImages: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default RocketCard;

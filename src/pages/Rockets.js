@@ -13,6 +13,10 @@ function Rockets() {
     dispatch(fetchRockets());
   }, [dispatch]);
 
+  const clickHandler = (e) => {
+    e.preventDefault();
+  };
+
   if (rocketsStatus === 'loading') {
     return (
       <h1 style={{ marginLeft: '40px' }}>Loading...</h1>
@@ -33,6 +37,7 @@ function Rockets() {
           name={item.rocket_name}
           description={item.description}
           flickrImages={item.flickr_images[0]}
+          onClick={clickHandler}
         />
       ))}
     </>
