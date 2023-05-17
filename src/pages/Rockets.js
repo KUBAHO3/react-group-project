@@ -32,6 +32,7 @@ function Rockets() {
           name={item.name}
           description={item.description}
           flickrImages={item.image}
+          reserved={item.reserved}
           onClick={clickHandler}
         />
       ))}
