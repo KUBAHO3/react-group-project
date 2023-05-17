@@ -8,7 +8,6 @@ const initialState = {
   status: 'idle',
   loading: false,
   error: null,
-  reservedRockets: [],
 };
 
 export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () => {
@@ -30,10 +29,6 @@ const rocketsSlice = createSlice({
       if (rocket) {
         rocket.reserved = !rocket.reserved;
       }
-    },
-    bookedRockets(state) {
-      const booked = state.rockets.filter((rocket) => rocket.reserved === true);
-      state.reservedRockets = [...booked];
     },
   },
   extraReducers: (builder) => {
