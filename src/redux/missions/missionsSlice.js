@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, isRejectedWithValue } from '@reduxjs/too
 import axios from 'axios';
 
 const initialState = {
-  rockets: [],
+  missions: [],
   status: 'idle',
   error: null,
 };
@@ -24,18 +24,18 @@ export const missionsSlice = createSlice({
   reducers: {
     joinMission: (state, action) => {
       const missionId = action.payload;
-      state.rockets = state.rockets.map((mission) => {
+      state.missions = state.missions.map((mission) => {
         if (mission.mission_id === missionId) {
-          return { ...mission, reserved: true };
+          return { ...mission, joined: true };
         }
         return mission;
       });
     },
     leaveMission: (state, action) => {
       const missionId = action.payload;
-      state.rockets = state.rockets.map((mission) => {
+      state.missions = state.missions.map((mission) => {
         if (mission.mission_id === missionId) {
-          return { ...mission, reserved: false };
+          return { ...mission, joined: false };
         }
         return mission;
       });
@@ -48,7 +48,7 @@ export const missionsSlice = createSlice({
       })
       .addCase(fetchMissions.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.rockets = action.payload;
+        state.missions = action.payload;
       })
       .addCase(fetchMissions.rejected, (state, action) => {
         state.status = 'failed';

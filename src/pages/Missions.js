@@ -37,7 +37,7 @@ const StyledMission = styled.div`
 function Missions() {
   const dispatch = useDispatch();
 
-  const missionsData = useSelector((state) => state.missions.rockets);
+  const missionsData = useSelector((state) => state.missions.missions);
   const missionsStatus = useSelector((state) => state.missions.status);
   const missionsError = useSelector((state) => state.missions.error);
 
@@ -86,12 +86,12 @@ function Missions() {
               <td className="name">{item.mission_name}</td>
               <td className="description">{item.description}</td>
               <td className="statusColumn">
-                <div style={item.reserved ? { backgroundColor: 'green' } : { backgroundColor: 'grey' }} className="status">
-                  {item.reserved ? 'Active Member' : 'Not A Member'}
+                <div style={item.joined ? { backgroundColor: 'green' } : { backgroundColor: 'grey' }} className="status">
+                  {item.joined ? 'Active Member' : 'Not A Member'}
                 </div>
               </td>
               <td className="buttonColumn">
-                {item.reserved ? (
+                {item.joined ? (
                   <button
                     type="button"
                     className="missionButton"
