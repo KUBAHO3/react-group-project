@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Navbar from '../components/Navbar';
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import Navbar from '../components/Navbar';
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Navbar component', () => {
   it('renders without crashing', () => {

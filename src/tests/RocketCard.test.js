@@ -1,10 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { shallow } from 'enzyme';
-import RocketCard from '../components/RocketCard';
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import RocketCard from '../components/RocketCard';
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('RocketCard component', () => {
   const mockProps = {

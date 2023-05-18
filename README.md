@@ -111,6 +111,7 @@ This is a react and redux group project prepare as exercise in microverrse learn
 - **Use redux toolkit in Components**
 - **Work with apis**
 - **Add proper styles**
+- **Add jest tests**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -249,7 +250,7 @@ If you like this project please follow me on github & twitter and also connect o
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/KUBAHO3/React-Group-Project/blob/initialize-pro/MIT.md) licensed.
+This project is [MIT](https://github.com/KUBAHO3/react-group-Project/blob/tests-components/MIT.md) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
