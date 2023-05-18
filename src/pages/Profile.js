@@ -13,7 +13,7 @@ function Profile() {
 
   return (
     <>
-      <h1 className="container">Booked Rockets</h1>
+      <h1 className="container mt-2">Booked Rockets</h1>
       {reservedRockets.reservedRockets.length !== 0 ? '' : <p className="container">Please Book some Rockets</p>}
       {reservedRockets.reservedRockets?.map((item) => (
         <RocketCard
