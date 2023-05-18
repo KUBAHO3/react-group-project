@@ -7,7 +7,8 @@ function Profile() {
 
   const profileStyle = {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    gap: '20px',
     margin: '20px auto',
   };
 
@@ -19,22 +20,28 @@ function Profile() {
 
   const listStyles = {
     border: '1px solid lightgrey',
-    padding: '10px 25vw 10px 20px',
+    padding: '15px 25vw 15px 20px',
   };
 
   return (
     <div style={profileStyle} className="profile">
-      <div className="mission">
-        <h2 className="mission-h1">My Missions</h2>
-        <ul style={ulStyles} className="mission-ul">
+      <div className="missions">
+        <h2 className="missions-h1">My Missions</h2>
+        <ul style={ulStyles} className="missions-ul">
           { joinedMissions.map((mission) => (
-            <li style={listStyles} className="mission-li" key={mission.mission_id}>{ mission.mission_name }</li>
+            <li style={listStyles} className="missions-li" key={mission.mission_id}>{ mission.mission_name }</li>
           )) }
         </ul>
       </div>
 
-      <div>
-        <h2>My Rockets</h2>
+      {/* Replace the hardCoded data in ul elements with data for Reserved Rockets */}
+      <div className="rockets">
+        <h2 className="rockets-h1">My Rockets</h2>
+        <ul style={ulStyles} className="rockets-ul">
+          <li style={listStyles}>One</li>
+          <li style={listStyles}>Two</li>
+          <li style={listStyles}>Three</li>
+        </ul>
       </div>
     </div>
   );
