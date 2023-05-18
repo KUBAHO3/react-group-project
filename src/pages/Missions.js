@@ -37,13 +37,17 @@ const StyledMission = styled.div`
 function Missions() {
   const dispatch = useDispatch();
 
-  const missionsData = useSelector((state) => state.missions.missions);
-  const missionsStatus = useSelector((state) => state.missions.status);
-  const missionsError = useSelector((state) => state.missions.error);
+  const {
+    missions: missionsData,
+    status: missionsStatus,
+    error: missionsError,
+  } = useSelector((store) => store.missions);
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (missionsData.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, missionsData]);
 
   const handleJoinMission = (missionId) => {
     dispatch(joinMission(missionId));
