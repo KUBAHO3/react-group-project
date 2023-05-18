@@ -1,7 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { bookedRockets } from '../redux/rockets/rocketsSlice';
 
 function Profile() {
+  const reservedRockets = useSelector((store) => store.rockets);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(bookedRockets());
+  }, [dispatch]);
+
   const missionsData = useSelector((state) => state.missions.missions);
   const joinedMissions = missionsData.filter((mission) => mission.joined);
 
@@ -33,14 +41,13 @@ function Profile() {
           )) }
         </ul>
       </div>
-
-      {/* Replace the hardCoded data in ul elements with data for Reserved Rockets */}
       <div className="rockets">
         <h2 className="rockets-h1">My Rockets</h2>
         <ul style={ulStyles} className="rockets-ul">
-          <li style={listStyles}>One</li>
-          <li style={listStyles}>Two</li>
-          <li style={listStyles}>Three</li>
+          {reservedRockets.reservedRockets.length !== 0 ? '' : <p className="container">Please Book some Rockets</p>}
+          {reservedRockets.reservedRockets?.map((item) => (
+            <li style={listStyles} className="missions-li" key={item.id}>{ item.name}</li>
+          ))}
         </ul>
       </div>
     </div>
