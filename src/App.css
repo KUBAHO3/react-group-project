@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+nav {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > ul.nav-items {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-item-list {
+  list-style: none;
+  padding-right: 40px;
+}
+
+.nav-item-list a {
+  text-decoration: none;
+  font-size: 18px;
+  color: blue;
+}
+
+.tab {
+  margin: 0;
+}
+
+.active > p {
+  text-decoration: underline;
+}
